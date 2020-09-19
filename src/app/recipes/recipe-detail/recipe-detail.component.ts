@@ -27,12 +27,6 @@ id:number
     })
   }
 
-
-  ngOnChange(){
-    
-  }
-
-
   onAddToShoppingList(){
     let ingredients=this.recipeService.getIngredients()
     let allowIngredient:boolean=false;
