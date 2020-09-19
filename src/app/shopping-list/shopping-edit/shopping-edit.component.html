@@ -1,0 +1,41 @@
+<!-- ng g c foldername --skipTests true -->
+
+<div class="row">
+    <div class="col-xs-12">
+        <form (ngSubmit)="onSubmit(f)" #f="ngForm">
+            <div class="row">
+                <div class="col-sm-5 form-group">
+                    <label for="name">Name</label>
+                    <input type="text"
+                     id="name"
+                     class="form-control" 
+                    name="name"
+                    ngModel
+                    required
+                    >
+                    <p *ngIf = "alreadyPresent"> This Item Already Exists! Please Type New One</p>
+                </div>
+                <div class="col-sm-2 form-group">
+                    <label for="amount">Amount</label>
+                    <input type="text"
+                     id="amount"
+                     class="form-control"
+                     name="amount"
+                     ngModel
+                     required
+                     pattern="^[1-9]+[0-9]*$"
+                    >
+                </div>
+            </div>
+            <p *ngIf="invalidDelete">Item Does Not Exist</p>
+            <div class="row">
+                <div class="col-xs-12">
+                    <button class="btn btn-success" type="submit" [disabled]="f.invalid"> {{ editMode ? "Update":"Add"}}</button>
+                    <button class="btn btn-danger" type="button" *ngIf="editMode" (click)="onDelete(f)">Delete</button>
+                    <button class="btn btn-primary" type="button" (click)="onClear()"> Clear</button>
+
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

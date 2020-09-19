@@ -1,0 +1,16 @@
+<div class="row">
+    <div class="col-xs-12">
+        <button class="btn btn-success" (click)="onNewRecipe()">New Recipe</button>
+        <hr>
+    </div>
+</div>
+<!-- *ngFor = "let logItem of log; let i=index" -->
+<!--src={{recipe.imagePath}} string interpolation  OR-->  
+<!-- [src]="recipe.imagePath" PROPERTY BINDING -->
+<div class="row" >
+    
+    <div class="col-xs-12">
+        <app-recipe-item *ngFor="let recipeS of recipes; let i=index"  [recipe]="recipeS" [index]="i"></app-recipe-item>
+    </div>
+</div>
+<!-- (recipeSelected)="onRecipeSelected(recipeS)" -->
